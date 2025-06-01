@@ -1,19 +1,1173 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>My static Space</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="card">
-			<h1>Welcome to your static Space!</h1>
-			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
-			<p>
-				Also don't forget to check the
-				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
-			</p>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I-Tech Softwarez - Empowering Developers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                        accent: '#F59E0B',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #10B981 100%);
+        }
+        .software-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .nav-link:hover {
+            color: #4F46E5;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-code text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-dark">I-Tech Softwarez</span>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="border-primary text-dark inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        <a href="#features" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Features</a>
+                        <div class="dropdown relative">
+                            <button class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                                Categories <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </button>
+                            <div class="dropdown-menu absolute hidden mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                                <div class="py-1">
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Portfolio Templates</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Business Websites</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mobile Apps</a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Desktop Applications</a>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#developers" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Developers</a>
+                        <a href="#how-it-works" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">How It Works</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <a href="#" class="text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
+                    <a href="#" class="ml-4 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition">Join as Developer</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#" class="bg-primary bg-opacity-10 text-primary block pl-3 pr-4 py-2 border-l-4 border-primary text-base font-medium">Home</a>
+                <a href="#features" class="text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium">Features</a>
+                <a href="#" class="text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium">Categories</a>
+                <a href="#developers" class="text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium">Developers</a>
+                <a href="#how-it-works" class="text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium">How It Works</a>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="flex items-center px-5">
+                        <a href="#" class="ml-3 text-gray-500 hover:text-primary px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
+                        <a href="#" class="ml-3 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition">Join as Developer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Empowering Developers.<br>Simplifying Software Discovery.
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl">
+                    The marketplace where developers showcase their creations and users find perfect software solutions.
+                </p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-primary bg-white hover:bg-gray-50">
+                        Explore Softwares
+                    </a>
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary bg-opacity-20 hover:bg-opacity-30">
+                        Join as Developer
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Products -->
+    <div id="features" class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">
+                Featured Software Products
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                Discover the most popular and innovative software solutions from our talented developers.
+            </p>
+        </div>
+        
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Product Card 1 -->
+            <div class="software-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                <div class="relative pb-2/3 h-48">
+                    <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Product screenshot">
+                    <div class="absolute top-2 right-2 bg-accent text-white text-xs font-bold px-2 py-1 rounded">
+                        VIP
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-dark">E-Commerce Dashboard</h3>
+                        <span class="text-primary font-bold">Ksh 1,200</span>
+                    </div>
+                    <div class="mt-2 flex items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="text-gray-600 ml-1">4.8 (24)</span>
+                        </div>
+                        <span class="mx-2 text-gray-300">|</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-download text-gray-400"></i>
+                            <span class="text-gray-600 ml-1">156</span>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-gray-500 text-sm">
+                        Complete e-commerce dashboard with analytics, product management, and order tracking.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">React</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Node.js</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">MongoDB</span>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center">
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">View Demo</a>
+                        <button class="bg-primary text-white px-3 py-1 rounded text-sm hover:bg-opacity-90">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Card 2 -->
+            <div class="software-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                <div class="relative pb-2/3 h-48">
+                    <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Product screenshot">
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-dark">Portfolio Template</h3>
+                        <span class="text-primary font-bold">Ksh 800</span>
+                    </div>
+                    <div class="mt-2 flex items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="text-gray-600 ml-1">4.5 (18)</span>
+                        </div>
+                        <span class="mx-2 text-gray-300">|</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-download text-gray-400"></i>
+                            <span class="text-gray-600 ml-1">89</span>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-gray-500 text-sm">
+                        Modern portfolio template for designers and developers with dark/light mode.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">HTML/CSS</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded">JavaScript</span>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center">
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">View Demo</a>
+                        <button class="bg-primary text-white px-3 py-1 rounded text-sm hover:bg-opacity-90">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Card 3 -->
+            <div class="software-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out">
+                <div class="relative pb-2/3 h-48">
+                    <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1555774698-0f77e70ac5f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Product screenshot">
+                    <div class="absolute top-2 right-2 bg-accent text-white text-xs font-bold px-2 py-1 rounded">
+                        VIP
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-dark">Fitness Mobile App</h3>
+                        <span class="text-primary font-bold">Ksh 1,500</span>
+                    </div>
+                    <div class="mt-2 flex items-center">
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <span class="text-gray-600 ml-1">4.9 (32)</span>
+                        </div>
+                        <span class="mx-2 text-gray-300">|</span>
+                        <div class="flex items-center">
+                            <i class="fas fa-download text-gray-400"></i>
+                            <span class="text-gray-600 ml-1">210</span>
+                        </div>
+                    </div>
+                    <p class="mt-3 text-gray-500 text-sm">
+                        Complete fitness tracking app with workout plans, nutrition tracking, and progress analytics.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded">Flutter</span>
+                        <span class="px-2 py-1 bg-green-500 text-white text-xs rounded">Firebase</span>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center">
+                        <a href="#" class="text-primary text-sm font-medium hover:underline">View Demo</a>
+                        <button class="bg-primary text-white px-3 py-1 rounded text-sm hover:bg-opacity-90">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-10 text-center">
+            <a href="#" class="inline-flex items-center px-4 py-2 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+                View All Software Products
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Categories Section -->
+    <div class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">
+                    Browse by Categories
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Find the perfect software solution for your needs.
+                </p>
+            </div>
+            
+            <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+                <!-- Category 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-blue-100 text-blue-600">
+                            <i class="fas fa-briefcase text-xl"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-dark">Portfolio Templates</h3>
+                        <p class="mt-2 text-gray-500">
+                            Beautiful templates for designers, developers, and creatives to showcase their work.
+                        </p>
+                        <div class="mt-4">
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">
+                                Browse Portfolio Templates
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-green-100 text-green-600">
+                            <i class="fas fa-store text-xl"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-dark">Business Websites</h3>
+                        <p class="mt-2 text-gray-500">
+                            Professional websites for businesses, startups, and e-commerce stores.
+                        </p>
+                        <div class="mt-4">
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">
+                                Browse Business Websites
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-purple-100 text-purple-600">
+                            <i class="fas fa-mobile-alt text-xl"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-dark">Mobile Apps</h3>
+                        <p class="mt-2 text-gray-500">
+                            Ready-to-use mobile applications for various purposes and industries.
+                        </p>
+                        <div class="mt-4">
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">
+                                Browse Mobile Apps
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out hover:shadow-lg">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-yellow-100 text-yellow-600">
+                            <i class="fas fa-desktop text-xl"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-dark">Desktop Applications</h3>
+                        <p class="mt-2 text-gray-500">
+                            Powerful desktop software for productivity, utilities, and specialized tasks.
+                        </p>
+                        <div class="mt-4">
+                            <a href="#" class="text-primary text-sm font-medium hover:underline">
+                                Browse Desktop Apps
+                                <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Developers -->
+    <div id="developers" class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">
+                Our Top Developers
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                Meet the talented developers creating amazing software solutions.
+            </p>
+        </div>
+        
+        <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Developer 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Developer">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-dark">James Kariuki</h3>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-gray-600 text-sm ml-1">4.9 (87 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="ml-auto bg-primary bg-opacity-10 px-2 py-1 rounded-full">
+                            <span class="text-primary text-xs font-medium">VIP Developer</span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        Full-stack developer specializing in React, Node.js, and MongoDB applications.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">React</span>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Node.js</span>
+                        <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">MongoDB</span>
+                    </div>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-700">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-500">Products</span>
+                            <span class="text-sm font-medium text-dark">14</span>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-sm text-gray-500">Downloads</span>
+                            <span class="text-sm font-medium text-dark">1,245</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Developer 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Developer">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-dark">Sarah Mwende</h3>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-gray-600 text-sm ml-1">4.8 (63 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        Mobile app developer with expertise in Flutter and Firebase for cross-platform solutions.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded">Flutter</span>
+                        <span class="px-2 py-1 bg-green-500 text-white text-xs rounded">Firebase</span>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded">Dart</span>
+                    </div>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-700">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-500">Products</span>
+                            <span class="text-sm font-medium text-dark">9</span>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-sm text-gray-500">Downloads</span>
+                            <span class="text-sm font-medium text-dark">876</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Developer 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Developer">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-dark">David Omondi</h3>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                                <span class="text-gray-600 text-sm ml-1">4.7 (52 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="ml-auto bg-primary bg-opacity-10 px-2 py-1 rounded-full">
+                            <span class="text-primary text-xs font-medium">VIP Developer</span>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        Python expert creating powerful desktop applications and automation tools.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-blue-600 text-white text-xs rounded">Python</span>
+                        <span class="px-2 py-1 bg-gray-800 text-white text-xs rounded">Django</span>
+                        <span class="px-2 py-1 bg-green-600 text-white text-xs rounded">PyQt</span>
+                    </div>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-500">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-700">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-500">Products</span>
+                            <span class="text-sm font-medium text-dark">11</span>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <span class="text-sm text-gray-500">Downloads</span>
+                            <span class="text-sm font-medium text-dark">1,023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-10 text-center">
+            <a href="#" class="inline-flex items-center px-4 py-2 border border-primary text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50">
+                View All Developers
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div id="how-it-works" class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">
+                    How I-Tech Softwarez Works
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Simple steps to get started as a developer or customer.
+                </p>
+            </div>
+            
+            <div class="mt-10">
+                <div class="flex flex-col md:flex-row">
+                    <!-- Steps for Developers -->
+                    <div class="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-md mr-0 md:mr-4 mb-6 md:mb-0">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-primary bg-opacity-10 p-3 rounded-full">
+                                <i class="fas fa-code text-primary text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-xl font-semibold text-dark">For Developers</h3>
+                        </div>
+                        <div class="mt-6 space-y-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Create Your Developer Profile</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Sign up as a developer, complete your profile with skills, experience, and portfolio.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Choose Your Plan</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Select between Regular (Ksh 300) or VIP (Ksh 500) plan for enhanced visibility.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Upload Your Software</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Submit your software with details, screenshots, and demo. Our team will review it.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-white">
+                                        4
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Earn From Sales</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Get paid when customers purchase your software. Track earnings in your dashboard.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary hover:bg-opacity-90">
+                                Become a Developer
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Steps for Customers -->
+                    <div class="w-full md:w-1/2 p-6 bg-white rounded-lg shadow-md">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-secondary bg-opacity-10 p-3 rounded-full">
+                                <i class="fas fa-shopping-cart text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="ml-4 text-xl font-semibold text-dark">For Customers</h3>
+                        </div>
+                        <div class="mt-6 space-y-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-secondary text-white">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Browse Software</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Explore our marketplace and filter by category, price, or technology.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-secondary text-white">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">View Demos</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Check out live demos and screenshots to find the perfect software solution.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-secondary text-white">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Purchase & Download</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Add to cart, complete checkout, and instantly download your purchase.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-8 w-8 rounded-full bg-secondary text-white">
+                                        4
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-dark">Support & Updates</h4>
+                                    <p class="mt-1 text-gray-500">
+                                        Get support from developers and receive updates for your purchased software.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-secondary hover:bg-opacity-90">
+                                Browse Software
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Plans -->
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">
+                Developer Plans
+            </h2>
+            <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                Choose the plan that fits your needs and maximize your earnings.
+            </p>
+        </div>
+        
+        <div class="mt-10 grid gap-8 md:grid-cols-2">
+            <!-- Regular Plan -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                <div class="px-6 py-8">
+                    <div class="flex items-center">
+                        <h3 class="text-2xl font-bold text-dark">Regular Plan</h3>
+                        <span class="ml-auto bg-primary bg-opacity-10 px-3 py-1 rounded-full text-primary text-sm font-medium">
+                            Popular
+                        </span>
+                    </div>
+                    <div class="mt-6">
+                        <span class="text-4xl font-bold text-dark">Ksh 300</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        Perfect for developers starting out and wanting to showcase their work.
+                    </p>
+                    <div class="mt-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Upload unlimited software products</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Appear in category listings</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Basic analytics dashboard</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Standard commission rate (15%)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-times-circle text-gray-300"></i>
+                                </div>
+                                <p class="ml-3 text-gray-500">Priority placement</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-times-circle text-gray-300"></i>
+                                </div>
+                                <p class="ml-3 text-gray-500">Highlighted profile badge</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <button class="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary hover:bg-opacity-90">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VIP Plan -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-accent">
+                <div class="px-6 py-8">
+                    <div class="flex items-center">
+                        <h3 class="text-2xl font-bold text-dark">VIP Plan</h3>
+                        <span class="ml-auto bg-accent bg-opacity-10 px-3 py-1 rounded-full text-accent text-sm font-medium">
+                            Best Value
+                        </span>
+                    </div>
+                    <div class="mt-6">
+                        <span class="text-4xl font-bold text-dark">Ksh 500</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        For serious developers who want maximum exposure and premium features.
+                    </p>
+                    <div class="mt-8">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Everything in Regular Plan</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Priority placement on homepage</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Highlighted profile badge</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Reduced commission rate (10%)</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Early access to marketing features</p>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-check-circle text-green-500"></i>
+                                </div>
+                                <p class="ml-3 text-gray-700">Premium support</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-8">
+                        <button class="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-accent hover:bg-opacity-90">
+                            Get VIP Access
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center">
+            <p class="text-gray-500">
+                Save 20% with annual billing. Cancel anytime.
+            </p>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="bg-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-dark sm:text-4xl">
+                    What Our Users Say
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    Hear from developers and customers who love our platform.
+                </p>
+            </div>
+            
+            <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/32.jpg" alt="Testimonial">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-medium text-dark">Grace Wanjiku</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        "As a developer, I've earned over Ksh 50,000 in just 3 months by selling my portfolio templates. The platform makes it so easy to showcase and sell my work."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/54.jpg" alt="Testimonial">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-medium text-dark">Peter Kamau</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        "Found the perfect e-commerce solution for my small business. Saved me weeks of development time and the price was very reasonable."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonial">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-sm font-medium text-dark">Susan Akinyi</h4>
+                            <div class="flex mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-500">
+                        "The VIP plan was worth every shilling! My mobile apps get featured prominently and I've doubled my sales since upgrading."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold">Stay Updated</h3>
+                    <p class="mt-2 max-w-md text-primary-100">
+                        Subscribe to our newsletter for the latest software releases, developer tips, and exclusive offers.
+                    </p>
+                </div>
+                <div class="mt-8 md:mt-0 md:w-1/2">
+                    <form class="sm:flex">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input id="email" type="email" placeholder="Enter your email" class="w-full px-5 py-3 placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white focus:border-white rounded-md">
+                        <button type="submit" class="mt-3 sm:mt-0 sm:ml-3 flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-primary focus:ring-white">
+                            Subscribe
+                        </button>
+                    </form>
+                    <p class="mt-3 text-sm text-primary-100">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Marketplace</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Browse Software</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Categories</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Top Developers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">New Releases</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">For Developers</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Become a Developer</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Developer Plans</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Developer Resources</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold tracking-wider uppercase">Legal</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Refund Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Licensing</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-code text-primary text-2xl mr-2"></i>
+                    <span class="text-xl font-bold">I-Tech Softwarez</span>
+                </div>
+                <p class="mt-4 md:mt-0 text-gray-300 text-sm">
+                    &copy; 2023 I-Tech Softwarez. All rights reserved.
+                </p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal (hidden by default) -->
+    <div id="login-modal" class="fixed z-50 inset-0 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <div class="flex justify-between items-center">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                    Sign In to I-Tech Softwarez
+                                </h3>
+                                <button id="close-login-modal" class="text-gray-400 hover:text-gray-500">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="mt-6">
+                                <div class="space-y-6">
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                                        <div class="mt-1">
+                                            <input id="email" name="email" type="email" autocomplete="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                                        <div class="mt-1">
+                                            <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center">
+                                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                                            <label for="remember-me" class="ml-2 block text-sm text-gray-900">
+                                                Remember me
+                                            </label>
+                                        </div>
+                                        <div class="text-sm">
+                                            <a href="#" class="font-medium text-primary hover:text-opacity-80">
+                                                Forgot your password?
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                                            Sign in
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <div class="relative">
+                                        <div class="absolute inset-0 flex items-center">
+                                            <div class="w-full border-t border-gray-300"></div>
+                                        </div>
+                                        <div class="relative flex justify-center text-sm">
+                                            <span class="px-2 bg-white text-gray-500">
+                                                Or continue with
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-6 grid grid-cols-3 gap-3">
+                                        <div>
+                                            <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                                <i class="fab fa-google"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="#" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <div class="mt-3 w-full text-center sm:mt-0 sm:ml-3 sm:text-left">
+                        <p class="text-sm text-gray-500">
+                            Don't have an account? 
+                            <a href="#" class="font-medium text-primary hover:text-opacity-80">
+                                Sign up
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Login modal toggle
+        const loginModal = document.getElementById('login-modal');
+        const closeLoginModal = document.getElementById('close-login-modal');
+        
+        // For demo purposes, clicking any sign in link will show the modal
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            if (link.textContent.includes('Sign In')) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loginModal.classList.remove('hidden');
+                });
+            }
+        });
+        
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+            }
+        });
+        
+        // Tab functionality for any future tabs
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Deactivate all tab buttons
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                // Show selected tab content
+                document.getElementById(tabId).classList.add('active');
+                
+                // Activate clicked button
+                button.classList.remove('bg-white', 'text-gray-700');
+                button.classList.add('bg-primary', 'text-white');
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Tiictor/itechoftwarez" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>
